@@ -1,6 +1,11 @@
 # Kanban Board
+[![Build](https://img.shields.io/badge/Build-Deployed-2EA44F)](https://tr-tb-dev.github.io/angular-kanban-board/)
 
 A modern, feature-rich Kanban board application built with Angular 16.
+
+## Live Demo
+
+🚀 [View Live Application](https://tr-tb-dev.github.io/angular-kanban-board/)
 
 ## Features
 
@@ -52,3 +57,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 - TypeScript
 - RxJS
 - LocalStorage API
+
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/371b74f3-d20b-461b-ba62-ca8d5adb84c8" alt="Angular Kanban Board" width="80%"/> 
+</p>
