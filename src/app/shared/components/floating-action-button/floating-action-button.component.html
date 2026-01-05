@@ -1,0 +1,9 @@
+<button
+  class="fab"
+  [class.fab-expanded]="isHovered"
+  (click)="onClick()"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()">
+  <mat-icon class="fab-icon">add</mat-icon>
+  <span class="fab-label">{{ label }}</span>
+</button>

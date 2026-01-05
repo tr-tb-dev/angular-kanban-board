@@ -1,0 +1,149 @@
+.owner-management-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background-color: #f5f5f5;
+  overflow-y: auto;
+}
+
+.owners-list {
+  flex: 1;
+}
+
+.list-header {
+  margin-bottom: 1.5rem;
+
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.empty-state {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  p {
+    color: #999;
+    font-size: 1rem;
+    margin: 0;
+  }
+}
+
+.owner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.owner-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    border-color: #2196f3;
+
+    .owner-actions {
+      opacity: 1;
+    }
+  }
+}
+
+.owner-info {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.owner-avatar {
+  background-color: #e3f2fd;
+  color: #2196f3;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.owner-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.owner-name {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  word-wrap: break-word;
+}
+
+.owner-email {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+  color: #666;
+  word-wrap: break-word;
+}
+
+.owner-stats {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #999;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.owner-actions {
+  display: flex;
+  gap: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+
+  .btn-icon {
+    background: transparent;
+    border: none;
+    padding: 0.375rem;
+    cursor: pointer;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    transition: all 0.15s ease;
+
+    &:hover {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    &.btn-delete {
+      &:hover {
+        background-color: #ffebee;
+        color: #d32f2f;
+      }
+    }
+
+    svg {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<div class="owner-management-container">
+  <div class="owners-list">
+    <div class="list-header">
+      <h2>All Owners ({{ owners.length }})</h2>
+    </div>
+
+    <div class="empty-state" *ngIf="owners.length === 0">
+      <p>No owners yet. Add your first owner to get started!</p>
+    </div>
+
+    <div class="owner-grid" *ngIf="owners.length > 0">
+      <div
+        class="owner-card"
+        *ngFor="let owner of owners; trackBy: trackByOwnerId">
+        <div class="owner-info">
+          <div class="owner-avatar">
+            <mat-icon>person</mat-icon>
+          </div>
+          <div class="owner-details">
+            <h3 class="owner-name">{{ owner.name }}</h3>
+            <p class="owner-email" *ngIf="owner.email">{{ owner.email }}</p>
+            <p class="owner-stats">
+              {{ getOwnerTicketCount(owner.id) }} ticket{{ getOwnerTicketCount(owner.id) !== 1 ? 's' : '' }}
+            </p>
+          </div>
+        </div>
+
+        <div class="owner-actions">
+          <button class="btn-icon" (click)="openEditOwnerForm(owner)" title="Edit owner">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button class="btn-icon btn-delete" (click)="onDelete(owner)" title="Delete owner">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-floating-action-button
+  label="New Owner"
+  (clicked)="openOwnerForm()">
+</app-floating-action-button>
+
+<app-owner-form
+  *ngIf="isOwnerFormOpen"
+  [owner]="ownerToEdit"
+  (close)="closeOwnerForm()">
+</app-owner-form>

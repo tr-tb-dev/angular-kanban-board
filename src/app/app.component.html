@@ -1,0 +1,52 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1>Kanban Board</h1>
+    <div class="app-header-right">
+      <div class="board-actions">
+        <button class="btn-icon" (click)="onExport()" title="Export board state">
+          <mat-icon>download</mat-icon>
+        </button>
+        <button class="btn-icon" (click)="fileInput.click()" title="Import board state">
+          <mat-icon>upload</mat-icon>
+        </button>
+        <input
+          #fileInput
+          type="file"
+          accept=".json"
+          style="display: none"
+          (change)="onImport($event)">
+      </div>
+      <nav class="app-nav">
+        <a routerLink="/board" routerLinkActive="active">Board</a>
+        <a routerLink="/owners" routerLinkActive="active">Manage Owners</a>
+      </nav>
+      <router-outlet name="header-actions"></router-outlet>
+    </div>
+  </header>
+
+  <main class="app-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+<div class="modal-overlay" *ngIf="showWarningModal" (click)="closeWarningModal()">
+  <div class="modal-content warning-modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Import Failed</h2>
+      <button class="btn-close" (click)="closeWarningModal()" type="button">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="warning-icon">
+        <mat-icon>warning</mat-icon>
+      </div>
+      <p class="warning-message">{{ warningMessage }}</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-primary" (click)="closeWarningModal()">
+        OK
+      </button>
+    </div>
+  </div>
+</div>

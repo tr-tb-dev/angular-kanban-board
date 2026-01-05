@@ -1,0 +1,23 @@
+<div class="board-container">
+  <div class="board" cdkDropListGroup>
+    <app-column
+      *ngFor="let column of columns; trackBy: trackByColumnId"
+      [column]="column"
+      [tickets]="tickets"
+      (ticketDrop)="onTicketDrop($event)"
+      (ticketEdit)="onTicketEdit($event)"
+      (ticketDelete)="onTicketDelete($event)">
+    </app-column>
+  </div>
+</div>
+
+<app-floating-action-button
+  label="New Ticket"
+  (clicked)="openTicketForm()">
+</app-floating-action-button>
+
+<app-ticket-form
+  *ngIf="isTicketFormOpen"
+  [ticket]="ticketToEdit"
+  (close)="closeTicketForm()">
+</app-ticket-form>

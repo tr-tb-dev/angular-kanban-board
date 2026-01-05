@@ -1,0 +1,102 @@
+.column {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.column-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 2px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafafa;
+  border-radius: 8px 8px 0 0;
+
+  h2 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .ticket-count {
+    background-color: #e0e0e0;
+    color: #666;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    min-width: 24px;
+    text-align: center;
+  }
+}
+
+.column-content {
+  padding: 1rem;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+
+    &:hover {
+      background: #999;
+    }
+  }
+}
+
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-height: 150px;
+
+  p {
+    color: #999;
+    font-style: italic;
+    margin: 0;
+  }
+}
+
+.ticket-placeholder {
+  background-color: #e3f2fd;
+  border: 2px dashed #2196f3;
+  border-radius: 4px;
+  min-height: 100px;
+  margin-bottom: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.cdk-drag-preview {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

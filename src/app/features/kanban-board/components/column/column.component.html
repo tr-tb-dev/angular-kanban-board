@@ -1,0 +1,28 @@
+<div class="column">
+  <div class="column-header">
+    <h2>{{ column.title }}</h2>
+    <span class="ticket-count">{{ columnTickets.length }}</span>
+  </div>
+
+  <div
+    class="column-content"
+    cdkDropList
+    [cdkDropListData]="columnTickets"
+    (cdkDropListDropped)="onDrop($event)">
+
+    <app-ticket
+      *ngFor="let ticket of columnTickets; trackBy: trackByTicketId"
+      [ticket]="ticket"
+      cdkDrag
+      [cdkDragData]="ticket"
+      (edit)="onTicketEdit($event)"
+      (delete)="onTicketDelete($event)">
+
+      <div class="ticket-placeholder" *cdkDragPlaceholder></div>
+    </app-ticket>
+
+    <div class="empty-state" *ngIf="columnTickets.length === 0">
+      <p>No tickets yet</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="ticket-card">
+  <div class="ticket-header">
+    <h3 class="ticket-title">{{ ticket.title }}</h3>
+    <div class="ticket-actions">
+      <button class="btn-icon" (click)="onEdit()" title="Edit ticket">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button class="btn-icon btn-delete" (click)="onDelete($event)" title="Delete ticket">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <p class="ticket-description">{{ ticket.description }}</p>
+
+  <div class="ticket-footer">
+    <div class="ticket-owner">
+      <mat-icon>person</mat-icon>
+      <span>{{ ticket.owner.name }}</span>
+    </div>
+  </div>
+</div>
