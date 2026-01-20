@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "hard-reset": "rmdir /s /q node_modules && del package-lock.json && npm install",
+    "hr": "npm run hard-reset"
   },
   "private": true,
   "dependencies": {
